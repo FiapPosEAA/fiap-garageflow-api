@@ -1,0 +1,40 @@
+name: CD API Kubernetes
+
+on:
+  push:
+    branches: [main, homologacao]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'producao' || 'homologacao' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/garageflow-api:${{ github.sha }}
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-2' }}
+      - uses: azure/setup-kubectl@v4
+      - run: aws eks update-kubeconfig --region "${{ vars.AWS_REGION || 'us-east-2' }}" --name "${{ vars.EKS_CLUSTER_NAME }}"
+        - run: >-
+          kubectl -n garage-flow-namespace create secret generic garage-flow-secrets
+          --from-literal=ConnectionStrings__DefaultConnection="${{ secrets.DEFAULT_CONNECTION }}"
+          --from-literal=Jwt__Key="${{ secrets.JWT_SECRET }}"
+          --dry-run=client -o yaml | kubectl apply -f -
+      - run: kubectl -n garage-flow-namespace set image deployment/garage-flow-deployment garage-flow=ghcr.io/${{ github.repository_owner }}/garageflow-api:${{ github.sha }}
+      - run: kubectl -n garage-flow-namespace rollout status deployment/garage-flow-deployment --timeout=180s

@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="GarageFlowService.API/GarageFlowService.API.csproj" />
+    <Project Path="GarageFlowService.Application/GarageFlowService.Application.csproj" />
+    <Project Path="GarageFlowService.Domain/GarageFlowService.Domain.csproj" />
+    <Project Path="GarageFlowService.Infrastructure/GarageFlowService.Infrastructure.csproj" />
+    <Project Path="tests/GarageFlowService.Tests/GarageFlowService.Tests.csproj" />
+  </Folder>
+</Solution>
+
