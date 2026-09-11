@@ -337,3 +337,4 @@ C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\tests\Ga
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\tests\GarageFlowService.Tests\obj\Debug\net8.0\GarageFl.92918219.Up2Date
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\tests\GarageFlowService.Tests\obj\Debug\net8.0\GarageFlowService.Tests.genruntimeconfig.cache
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\tests\GarageFlowService.Tests\obj\Debug\net8.0\ref\GarageFlowService.Tests.dll
+C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\tests\GarageFlowService.Tests\obj\Debug\net8.0\GarageFlowService.Tests.sourcelink.json

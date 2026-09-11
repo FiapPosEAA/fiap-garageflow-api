@@ -37,3 +37,4 @@ C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFl
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Infrastructure\obj\Debug\net8.0\GarageFlowService.Infrastructure.pdb
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Infrastructure\obj\Debug\net8.0\GarageFlowService.Infrastructure.genruntimeconfig.cache
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Infrastructure\obj\Debug\net8.0\ref\GarageFlowService.Infrastructure.dll
+C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Infrastructure\obj\Debug\net8.0\GarageFlowService.Infrastructure.sourcelink.json

@@ -29,3 +29,4 @@ C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFl
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Application\obj\Debug\net8.0\refint\GarageFlowService.Application.dll
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Application\obj\Debug\net8.0\GarageFlowService.Application.pdb
 C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Application\obj\Debug\net8.0\ref\GarageFlowService.Application.dll
+C:\Users\Public\GitHub\fiap-tech-challenge-2026\fiap-garageflow-api\src\GarageFlowService.Application\obj\Debug\net8.0\GarageFlowService.Application.sourcelink.json

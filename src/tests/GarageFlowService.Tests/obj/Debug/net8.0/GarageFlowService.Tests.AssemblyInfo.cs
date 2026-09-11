@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GarageFlowService.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20f904faf72e2dd35a02f906ed98f1a7e4b1867c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GarageFlowService.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GarageFlowService.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
