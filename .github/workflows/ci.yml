@@ -9,11 +9,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      - run: dotnet restore
+      - run: dotnet restore GarageFlowService.slnx
       - run: dotnet build --no-restore
       - run: dotnet test --no-build --verbosity minimal
