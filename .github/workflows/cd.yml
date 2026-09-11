@@ -31,7 +31,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION || 'us-east-2' }}
       - uses: azure/setup-kubectl@v4
       - run: aws eks update-kubeconfig --region "${{ vars.AWS_REGION || 'us-east-2' }}" --name "${{ vars.EKS_CLUSTER_NAME }}"
-        - run: >-
+      - run: >-
           kubectl -n garage-flow-namespace create secret generic garage-flow-secrets
           --from-literal=ConnectionStrings__DefaultConnection="${{ secrets.DEFAULT_CONNECTION }}"
           --from-literal=Jwt__Key="${{ secrets.JWT_SECRET }}"
