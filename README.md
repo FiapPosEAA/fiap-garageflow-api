@@ -43,6 +43,16 @@ dotnet run --project src/GarageFlowService.API/GarageFlowService.API.csproj
 
 A API executa as migrations do Entity Framework automaticamente durante a inicializacao.
 
+## Autenticacao
+
+O login e responsabilidade da Lambda publicada pelo API Gateway. Use `POST /auth` no endpoint do API Gateway com um CPF valido. A resposta fornece um JWT; envie esse token nas chamadas para a API .NET:
+
+```http
+Authorization: Bearer SEU_TOKEN
+```
+
+A API .NET apenas valida o JWT usando `Jwt__Key`, `Jwt__Issuer` e `Jwt__Audience`. Ela nao possui endpoint proprio de login.
+
 Endpoints locais:
 
 - Swagger: `https://localhost:7129/swagger` ou a URL exibida pelo `dotnet run`
@@ -87,9 +97,12 @@ Variables do GitHub:
 ```mermaid
 flowchart LR
         Client[Cliente] --> API[GarageFlow API]
+        Client --> Auth[API Gateway / Lambda Auth]
+        Auth --> JWT[JWT]
+        JWT --> API
         API --> App[Application]
         App --> Domain[Domain]
         App --> Infra[Infrastructure]
         Infra --> DB[(SQL Server / RDS)]
-        API --> JWT[JWT]
+        Auth --> DB
 ```
