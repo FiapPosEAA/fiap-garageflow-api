@@ -166,3 +166,17 @@ erDiagram
 ## Observações
 
 A documentação acima atende ao escopo ajustado do projeto, sem incluir monitoramento e observabilidade, que ficaram a cargo do colega responsável.
+
+## Evolução para microsserviços (Tech Challenge Fase 4)
+
+O conteúdo acima descreve o **monólito** (`GarageFlowService.*`) e foi mantido como histórico e referência de domínio. Na Fase 4 a solução-alvo passa a ser composta por:
+
+- `garageflow-os-service`: abertura/consulta de OS e orquestrador da Saga (SQL Server, banco `garageflow-os`);
+- `garageflow-billing-service`: orçamento e pagamento (SQL Server, banco `garageflow-billing`);
+- `garageflow-execution-service`: fila/execução da OS (DynamoDB, tabela `garageflow-executions`);
+- mensageria por Amazon SQS com outbox transacional e DLQs;
+- autenticação CPF → JWT na `fiap-garageflow-lambda-auth`, validada por todos os serviços.
+
+Pontos desta documentação que se aplicam apenas ao monólito: o diagrama de componentes (uma única API), a decisão "Clean Architecture" como estrutura única, a modelagem relacional única e o fluxo de abertura de OS síncrono. No diagrama de autenticação, a Lambda consulta o SQL Server diretamente (não usa o `Customer Repository` do monólito); o banco consultado é o `garage-flow`.
+
+O monólito ainda é implantado pelo CD deste repositório. A Saga, o consumo de eventos e a migração de clientes, veículos e catálogo ainda estão pendentes; consulte o checklist em [README.md](../README.md#status-e-pendências).
