@@ -1,0 +1,194 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-11-18T01:00:00.000Z",
+  "__export_source": "garageflow",
+  "resources": [
+    {
+      "_id": "wrk_garageflow",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "GarageFlow - Tech Challenge Fase 4",
+      "description": "Fluxo completo: autenticação por CPF (Lambda) -> OS -> orçamento/aprovação (Billing) -> execução (DynamoDB). Todas as rotas passam pelo API Gateway (HTTPS).",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_garageflow",
+      "name": "Base Environment",
+      "data": {}
+    },
+    {
+      "_id": "env_aws",
+      "_type": "environment",
+      "parentId": "env_base",
+      "name": "AWS (producao)",
+      "data": {
+        "base_url": "https://ja35r8vm51.execute-api.us-east-2.amazonaws.com",
+        "cpf": "52998224725",
+        "customer_id": "c329731d-34a8-46fb-80cc-610acef3b48f",
+        "vehicle_id": "veh-001",
+        "amount": 250,
+        "token": "{% response 'body', 'req_auth', 'b64::JC50b2tlbg==::46b', 'when-expired', 60 %}",
+        "work_order_id": "{% response 'body', 'req_os_create', 'b64::JC5pZA==::46b', 'never', 60 %}",
+        "quote_id": "{% response 'body', 'req_quote_create', 'b64::JC5pZA==::46b', 'never', 60 %}",
+        "execution_id": "{% response 'body', 'req_exec_create', 'b64::JC5pZA==::46b', 'never', 60 %}"
+      }
+    },
+    {
+      "_id": "fld_auth",
+      "_type": "request_group",
+      "parentId": "wrk_garageflow",
+      "name": "1. Autenticação (Lambda)",
+      "metaSortKey": 1
+    },
+    {
+      "_id": "fld_os",
+      "_type": "request_group",
+      "parentId": "wrk_garageflow",
+      "name": "2. OS Service",
+      "metaSortKey": 2
+    },
+    {
+      "_id": "fld_billing",
+      "_type": "request_group",
+      "parentId": "wrk_garageflow",
+      "name": "3. Billing Service",
+      "metaSortKey": 3
+    },
+    {
+      "_id": "fld_exec",
+      "_type": "request_group",
+      "parentId": "wrk_garageflow",
+      "name": "4. Execution Service",
+      "metaSortKey": 4
+    },
+    {
+      "_id": "req_auth",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "POST /auth (CPF -> JWT)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth",
+      "body": { "mimeType": "application/json", "text": "{\n  \"cpf\": \"{{ _.cpf }}\"\n}" },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_auth_invalid",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "POST /auth (CPF inválido -> 401)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth",
+      "body": { "mimeType": "application/json", "text": "{\n  \"cpf\": \"11111111111\"\n}" },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "metaSortKey": 2
+    },
+    {
+      "_id": "req_os_create",
+      "_type": "request",
+      "parentId": "fld_os",
+      "name": "POST /work-orders (abrir OS)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/work-orders",
+      "body": { "mimeType": "application/json", "text": "{\n  \"customerId\": \"{{ _.customer_id }}\",\n  \"vehicleId\": \"{{ _.vehicle_id }}\"\n}" },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "{{ _.token }}" }
+      ],
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_os_get",
+      "_type": "request",
+      "parentId": "fld_os",
+      "name": "GET /work-orders/{id}",
+      "method": "GET",
+      "url": "{{ _.base_url }}/work-orders/{{ _.work_order_id }}",
+      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "metaSortKey": 2
+    },
+    {
+      "_id": "req_os_unauth",
+      "_type": "request",
+      "parentId": "fld_os",
+      "name": "POST /work-orders sem token (-> 401)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/work-orders",
+      "body": { "mimeType": "application/json", "text": "{\n  \"customerId\": \"x\",\n  \"vehicleId\": \"y\"\n}" },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_quote_create",
+      "_type": "request",
+      "parentId": "fld_billing",
+      "name": "POST /quotes (gerar orçamento)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/quotes",
+      "body": { "mimeType": "application/json", "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\",\n  \"amount\": {{ _.amount }}\n}" },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "{{ _.token }}" }
+      ],
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_quote_get",
+      "_type": "request",
+      "parentId": "fld_billing",
+      "name": "GET /quotes/{id}",
+      "method": "GET",
+      "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}",
+      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "metaSortKey": 2
+    },
+    {
+      "_id": "req_quote_approve",
+      "_type": "request",
+      "parentId": "fld_billing",
+      "name": "POST /quotes/{id}/approve",
+      "method": "POST",
+      "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}/approve",
+      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_quote_payment",
+      "_type": "request",
+      "parentId": "fld_billing",
+      "name": "POST /quotes/{id}/payment (Mercado Pago Checkout Pro)",
+      "description": "Requer as secrets MERCADO_PAGO_* configuradas no repositório do Billing.",
+      "method": "POST",
+      "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}/payment",
+      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "metaSortKey": 4
+    },
+    {
+      "_id": "req_exec_create",
+      "_type": "request",
+      "parentId": "fld_exec",
+      "name": "POST /executions (enfileirar execução)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/executions",
+      "body": { "mimeType": "application/json", "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\"\n}" },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "{{ _.token }}" }
+      ],
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_exec_get",
+      "_type": "request",
+      "parentId": "fld_exec",
+      "name": "GET /executions/{id}",
+      "method": "GET",
+      "url": "{{ _.base_url }}/executions/{{ _.execution_id }}",
+      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "metaSortKey": 2
+    }
+  ]
+}
