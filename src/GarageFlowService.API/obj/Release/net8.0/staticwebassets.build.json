@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KGOBLyP10SuS1mLzMsWr5giMBRHENZgsaWAqlgXzQ+c=",
+  "Source": "GarageFlowService.API",
+  "BasePath": "_content/GarageFlowService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

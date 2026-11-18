@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bSOfcHkf4Tg=",
+  "dgSpecHash": "Bq7QuYAeM14=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
+  "projectFilePath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

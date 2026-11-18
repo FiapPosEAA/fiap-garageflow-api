@@ -1,42 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj": {}
+    "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj": {
+    "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj",
+        "projectUniqueName": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj",
         "projectName": "GarageFlowService.API",
-        "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj",
-        "packagesPath": "C:\\Users\\eange\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.API\\obj\\",
+        "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.API\\GarageFlowService.API.csproj",
+        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eange\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
-                "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj"
+              "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
+                "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj"
               },
-              "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj"
+              "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj"
               }
             }
           }
@@ -50,8 +44,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -95,40 +88,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\rapha\\tools\\dotnet\\sdk\\8.0.428/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
+    "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj",
+        "projectUniqueName": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj",
         "projectName": "GarageFlowService.Application",
-        "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj",
-        "packagesPath": "C:\\Users\\eange\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\obj\\",
+        "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj",
+        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eange\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
-                "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj"
+              "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
+                "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj"
               }
             }
           }
@@ -142,8 +129,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -174,32 +160,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\rapha\\tools\\dotnet\\sdk\\8.0.428/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
+    "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
         "projectName": "GarageFlowService.Domain",
-        "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
-        "packagesPath": "C:\\Users\\eange\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\obj\\",
+        "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj",
+        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eange\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -217,8 +197,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -239,43 +218,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\rapha\\tools\\dotnet\\sdk\\8.0.428/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj": {
+    "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj",
         "projectName": "GarageFlowService.Infrastructure",
-        "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\eange\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\GarageFlowService.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eange\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
-                "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj"
+              "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj": {
+                "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Application\\GarageFlowService.Application.csproj"
               },
-              "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
-                "projectPath": "C:\\Users\\Public\\GitHub\\fiap-tech-challenge-2026\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj"
+              "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj": {
+                "projectPath": "C:\\Users\\rapha\\fiap\\fiap-garageflow-api\\src\\GarageFlowService.Domain\\GarageFlowService.Domain.csproj"
               }
             }
           }
@@ -289,8 +262,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -327,7 +299,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\rapha\\tools\\dotnet\\sdk\\8.0.428/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

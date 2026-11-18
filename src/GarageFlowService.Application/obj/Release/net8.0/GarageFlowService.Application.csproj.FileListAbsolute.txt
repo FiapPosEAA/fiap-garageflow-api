@@ -1,0 +1,16 @@
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\bin\Release\net8.0\GarageFlowService.Application.deps.json
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\bin\Release\net8.0\GarageFlowService.Application.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\bin\Release\net8.0\GarageFlowService.Application.pdb
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\bin\Release\net8.0\GarageFlowService.Domain.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\bin\Release\net8.0\GarageFlowService.Domain.pdb
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.csproj.AssemblyReference.cache
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.AssemblyInfoInputs.cache
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.AssemblyInfo.cs
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.csproj.CoreCompileInputs.cache
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.sourcelink.json
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFl.0D22B5CD.Up2Date
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\refint\GarageFlowService.Application.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\GarageFlowService.Application.pdb
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Application\obj\Release\net8.0\ref\GarageFlowService.Application.dll

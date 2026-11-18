@@ -1,0 +1,12 @@
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\bin\Release\net8.0\GarageFlowService.Domain.deps.json
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\bin\Release\net8.0\GarageFlowService.Domain.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\bin\Release\net8.0\GarageFlowService.Domain.pdb
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.AssemblyInfoInputs.cache
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.AssemblyInfo.cs
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.sourcelink.json
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\refint\GarageFlowService.Domain.dll
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\GarageFlowService.Domain.pdb
+C:\Users\rapha\fiap\fiap-garageflow-api\src\GarageFlowService.Domain\obj\Release\net8.0\ref\GarageFlowService.Domain.dll
