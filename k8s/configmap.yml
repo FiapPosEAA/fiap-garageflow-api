@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: garage-flow-configmap
+  namespace: garage-flow-namespace
+data:
+  ASPNETCORE_URLS: 'http://+:8080'
+  Jwt__Issuer: 'GarageFlowService'
+  Jwt__Audience: 'GarageFlowServiceClients'
+  DB__Encrypt: 'true'

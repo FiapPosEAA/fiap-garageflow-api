@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: garage-flow-deployment
+  namespace: garage-flow-namespace
+  labels:
+    app: garage-flow-deployment
+    env: prod
+spec:
+  selector:
+    matchLabels:
+      app: garage-flow-app
+  template:
+    metadata:
+      labels:
+        app: garage-flow-app
+    spec:
+      containers:
+        - name: garage-flow
+          image: garageflow-api:placeholder
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: garage-flow-configmap
+            - secretRef:
+                name: garage-flow-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
