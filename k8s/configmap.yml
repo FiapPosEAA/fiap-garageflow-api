@@ -8,3 +8,5 @@ data:
   Jwt__Issuer: 'GarageFlowService'
   Jwt__Audience: 'GarageFlowServiceClients'
   DB__Encrypt: 'true'
+  DD_LOGS_INJECTION: 'true'
+  DD_TRACE_SAMPLE_RATE: '1.0'

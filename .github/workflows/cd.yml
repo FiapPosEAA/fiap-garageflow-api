@@ -53,6 +53,7 @@ jobs:
             --from-literal=Jwt__Key="$JWT_SECRET" \
             --dry-run=client -o yaml | kubectl apply -f -
           sed -i "s|image: garageflow-api:placeholder|image: $IMAGE|" k8s/deployment.yml
+          sed -i "s|tags.datadoghq.com/version: .*|tags.datadoghq.com/version: \"${GITHUB_SHA::7}\"|" k8s/deployment.yml
           kubectl apply -f k8s/
           kubectl -n "$NAMESPACE" rollout status "deployment/$DEPLOYMENT" --timeout=300s
       - name: Diagnostics on failure

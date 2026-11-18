@@ -17,6 +17,7 @@ Monólito original do GarageFlow (oficina mecânica): API .NET 8 em Clean Archit
 - [Endpoints do monólito](#endpoints-do-monólito)
 - [Testes e qualidade](#testes-e-qualidade)
 - [CI/CD](#cicd)
+- [Observabilidade (Datadog)](#observabilidade-datadog)
 - [Mapa de requisitos do Tech Challenge](#mapa-de-requisitos-do-tech-challenge)
 - [Status e pendências](#status-e-pendências)
 - [Troubleshooting](#troubleshooting)
@@ -211,6 +212,18 @@ Pelo código, o monólito **ainda é implantável e é implantado pelo CD** dest
 - O README do `fiap-garageflow-k8s-infra` descreve apenas a API do monólito.
 
 Não foi possível verificar o que está efetivamente rodando na AWS; isso exige consulta ao cluster.
+
+## Observabilidade (Datadog)
+
+Opcional e desligada por padrão: sem o Datadog instalado no cluster, os labels e variáveis abaixo não têm efeito e a API se comporta como antes.
+
+- **O que é coletado:** traces APM do monólito (ASP.NET Core e EF Core/SQL Server), logs do container (stdout) e métricas de pod, nó e Kubernetes.
+- **Como funciona:** o Agent e o Cluster Agent rodam no EKS (workflow **Datadog Agent** do `fiap-garageflow-k8s-infra`). O Admission Controller injeta o tracer .NET (annotation `admission.datadoghq.com/dotnet-lib.version: v3`) no pod com o label `admission.datadoghq.com/enabled: "true"`. Dockerfile e código não mudam.
+- **Configuração neste repo:** labels `tags.datadoghq.com/env|service|version` (`service=garageflow-api`) em [k8s/deployment.yml](k8s/deployment.yml) (o CD grava o SHA curto em `version`), expostos como `DD_ENV`, `DD_SERVICE` e `DD_VERSION`; `DD_LOGS_INJECTION=true` e `DD_TRACE_SAMPLE_RATE=1.0` em [k8s/configmap.yml](k8s/configmap.yml).
+- **Secrets:** nenhum neste repo; a API key só é usada pelo workflow do `fiap-garageflow-k8s-infra` (secret de organização `DD_API_KEY`).
+- **Como ligar:** criar `DD_API_KEY` na organização e rodar o workflow **Datadog Agent** no `fiap-garageflow-k8s-infra`.
+- **No vídeo:** comparar o monólito (`garageflow-api`) com os microsserviços no APM Service Map; Logs com `service:garageflow-api`.
+- **Limitações:** o formatter de console padrão não imprime o `trace_id` (veja a seção equivalente nos READMEs dos serviços para ativar JSON com scopes).
 
 ## Mapa de requisitos do Tech Challenge
 

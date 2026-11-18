@@ -6,6 +6,9 @@ metadata:
   labels:
     app: garage-flow-deployment
     env: prod
+    tags.datadoghq.com/env: producao
+    tags.datadoghq.com/service: garageflow-api
+    tags.datadoghq.com/version: "1.0.0"
 spec:
   selector:
     matchLabels:
@@ -14,12 +17,32 @@ spec:
     metadata:
       labels:
         app: garage-flow-app
+        # Datadog (opcional): sem o Cluster Agent no cluster, labels e annotation são ignorados.
+        admission.datadoghq.com/enabled: "true"
+        tags.datadoghq.com/env: producao
+        tags.datadoghq.com/service: garageflow-api
+        tags.datadoghq.com/version: "1.0.0"
+      annotations:
+        admission.datadoghq.com/dotnet-lib.version: v3
     spec:
       containers:
         - name: garage-flow
           image: garageflow-api:placeholder
           ports:
             - containerPort: 8080
+          env:
+            - name: DD_ENV
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/env']
+            - name: DD_SERVICE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/service']
+            - name: DD_VERSION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/version']
           envFrom:
             - configMapRef:
                 name: garage-flow-configmap
