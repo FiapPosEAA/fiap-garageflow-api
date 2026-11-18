@@ -33,7 +33,9 @@
         "token": "{% response 'body', 'req_auth', 'b64::JC50b2tlbg==::46b', 'when-expired', 60 %}",
         "work_order_id": "{% response 'body', 'req_os_create', 'b64::JC5pZA==::46b', 'never', 60 %}",
         "quote_id": "{% response 'body', 'req_quote_create', 'b64::JC5pZA==::46b', 'never', 60 %}",
-        "execution_id": "{% response 'body', 'req_exec_create', 'b64::JC5pZA==::46b', 'never', 60 %}"
+        "execution_id": "{% response 'body', 'req_exec_create', 'b64::JC5pZA==::46b', 'never', 60 %}",
+        "saga_quote_id": "{% response 'body', 'req_os_get', 'b64::JC5xdW90ZUlk::46b', 'always', 60 %}",
+        "saga_execution_id": "{% response 'body', 'req_os_get', 'b64::JC5leGVjdXRpb25JZA==::46b', 'always', 60 %}"
       }
     },
     {
@@ -71,8 +73,16 @@
       "name": "POST /auth (CPF -> JWT)",
       "method": "POST",
       "url": "{{ _.base_url }}/auth",
-      "body": { "mimeType": "application/json", "text": "{\n  \"cpf\": \"{{ _.cpf }}\"\n}" },
-      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"cpf\": \"{{ _.cpf }}\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "metaSortKey": 1
     },
     {
@@ -82,8 +92,16 @@
       "name": "POST /auth (CPF inválido -> 401)",
       "method": "POST",
       "url": "{{ _.base_url }}/auth",
-      "body": { "mimeType": "application/json", "text": "{\n  \"cpf\": \"11111111111\"\n}" },
-      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"cpf\": \"11111111111\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "metaSortKey": 2
     },
     {
@@ -93,10 +111,19 @@
       "name": "POST /work-orders (abrir OS)",
       "method": "POST",
       "url": "{{ _.base_url }}/work-orders",
-      "body": { "mimeType": "application/json", "text": "{\n  \"customerId\": \"{{ _.customer_id }}\",\n  \"vehicleId\": \"{{ _.vehicle_id }}\"\n}" },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customerId\": \"{{ _.customer_id }}\",\n  \"vehicleId\": \"{{ _.vehicle_id }}\"\n}"
+      },
       "headers": [
-        { "name": "Content-Type", "value": "application/json" },
-        { "name": "Authorization", "value": "{{ _.token }}" }
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
       ],
       "metaSortKey": 1
     },
@@ -107,7 +134,12 @@
       "name": "GET /work-orders/{id}",
       "method": "GET",
       "url": "{{ _.base_url }}/work-orders/{{ _.work_order_id }}",
-      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
       "metaSortKey": 2
     },
     {
@@ -117,8 +149,16 @@
       "name": "POST /work-orders sem token (-> 401)",
       "method": "POST",
       "url": "{{ _.base_url }}/work-orders",
-      "body": { "mimeType": "application/json", "text": "{\n  \"customerId\": \"x\",\n  \"vehicleId\": \"y\"\n}" },
-      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customerId\": \"x\",\n  \"vehicleId\": \"y\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
       "metaSortKey": 3
     },
     {
@@ -128,10 +168,19 @@
       "name": "POST /quotes (gerar orçamento)",
       "method": "POST",
       "url": "{{ _.base_url }}/quotes",
-      "body": { "mimeType": "application/json", "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\",\n  \"amount\": {{ _.amount }}\n}" },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\",\n  \"amount\": {{ _.amount }}\n}"
+      },
       "headers": [
-        { "name": "Content-Type", "value": "application/json" },
-        { "name": "Authorization", "value": "{{ _.token }}" }
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
       ],
       "metaSortKey": 1
     },
@@ -142,17 +191,27 @@
       "name": "GET /quotes/{id}",
       "method": "GET",
       "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}",
-      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
       "metaSortKey": 2
     },
     {
       "_id": "req_quote_approve",
       "_type": "request",
       "parentId": "fld_billing",
-      "name": "POST /quotes/{id}/approve",
+      "name": "POST /quotes/{id}/approve (usa o quoteId gerado pela Saga)",
       "method": "POST",
-      "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}/approve",
-      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "url": "{{ _.base_url }}/quotes/{{ _.saga_quote_id }}/approve",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
       "metaSortKey": 3
     },
     {
@@ -163,7 +222,12 @@
       "description": "Requer as secrets MERCADO_PAGO_* configuradas no repositório do Billing.",
       "method": "POST",
       "url": "{{ _.base_url }}/quotes/{{ _.quote_id }}/payment",
-      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
       "metaSortKey": 4
     },
     {
@@ -173,10 +237,19 @@
       "name": "POST /executions (enfileirar execução)",
       "method": "POST",
       "url": "{{ _.base_url }}/executions",
-      "body": { "mimeType": "application/json", "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\"\n}" },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"workOrderId\": \"{{ _.work_order_id }}\"\n}"
+      },
       "headers": [
-        { "name": "Content-Type", "value": "application/json" },
-        { "name": "Authorization", "value": "{{ _.token }}" }
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
       ],
       "metaSortKey": 1
     },
@@ -187,8 +260,73 @@
       "name": "GET /executions/{id}",
       "method": "GET",
       "url": "{{ _.base_url }}/executions/{{ _.execution_id }}",
-      "headers": [{ "name": "Authorization", "value": "{{ _.token }}" }],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
       "metaSortKey": 2
+    },
+    {
+      "_id": "req_os_history",
+      "_type": "request",
+      "parentId": "fld_os",
+      "name": "GET /work-orders/{id}/history (timeline da Saga)",
+      "method": "GET",
+      "url": "{{ _.base_url }}/work-orders/{{ _.work_order_id }}/history",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
+      "metaSortKey": 4
+    },
+    {
+      "_id": "req_os_cancel",
+      "_type": "request",
+      "parentId": "fld_os",
+      "name": "POST /work-orders/{id}/cancel (compensação)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/work-orders/{{ _.work_order_id }}/cancel",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
+      "metaSortKey": 5
+    },
+    {
+      "_id": "req_exec_complete",
+      "_type": "request",
+      "parentId": "fld_exec",
+      "name": "POST /executions/{id}/complete (OS -> Completed)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/executions/{{ _.saga_execution_id }}/complete",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_exec_fail",
+      "_type": "request",
+      "parentId": "fld_exec",
+      "name": "POST /executions/{id}/fail (dispara reembolso e cancela a OS)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/executions/{{ _.saga_execution_id }}/fail",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "{{ _.token }}"
+        }
+      ],
+      "metaSortKey": 4
     }
   ]
 }
